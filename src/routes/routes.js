@@ -13,8 +13,17 @@ router.get('/', (req, res) => {
 })
 
 router.get('/areas', (req, res) => {
-  console.log(areas.getAllAreas);
   res.send(areas.getAllAreas())
+})
+
+router.get('/dropouts', (req, res) => {
+  res.send(areas.getAllDropOuts())
+})
+
+router.get('/get-distance/:x/:y', (req, res) => {
+  const dropouts = areas.getAllDropOuts()
+  console.log(req.params);
+  res.send(areas.getAllDropOuts())
 })
 
 module.exports = router

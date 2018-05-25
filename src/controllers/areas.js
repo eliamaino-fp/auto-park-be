@@ -29,6 +29,30 @@ function getAllAreas() {
   return areas
 }
 
+function getAllDropOuts() {
+  const areas = getAllAreas()
+  const dropOuts = []
+
+  areas.forEach(area => {
+    if (area.dropOuts && area.dropOuts.length > 0) {
+      area.dropOuts.forEach(dropOut => {
+        dropOuts.push(dropOut)
+      })
+    }
+  })
+
+  return dropOuts
+}
+
+function distanceFromDropOut(startingPoint, dropOut) {
+  const a = startingPoint.xCoor - dropOut.xCoor
+  const b = startingPoint.yCoor - dropOut.yCoor
+
+  return Math.sqrt( a*a + b*b );
+}
+
 module.exports = {
-  getAllAreas
+  distanceFromDropOut,
+  getAllAreas,
+  getAllDropOuts
 }
