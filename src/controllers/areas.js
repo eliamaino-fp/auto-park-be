@@ -2,7 +2,7 @@ function getAllAreas() {
   const areas = [
     {
       areaId : '1',
-      freeParkingPercentage : '17%',
+      freeParkingPercentage : 17,
       dropOuts : [
         {
           xCoor : 250,
@@ -16,11 +16,15 @@ function getAllAreas() {
     },
     {
       areaId : '2',
-      freeParkingPercentage : '41%',
+      freeParkingPercentage : 41,
       dropOuts : [
         {
           xCoor : 12,
           yCoor : 77
+        },
+        {
+          xCoor : 75,
+          yCoor : 52
         }
       ]
     }
@@ -36,6 +40,7 @@ function getAllDropOuts() {
   areas.forEach(area => {
     if (area.dropOuts && area.dropOuts.length > 0) {
       area.dropOuts.forEach(dropOut => {
+        dropOut.areaValue = area.freeParkingPercentage
         dropOuts.push(dropOut)
       })
     }
@@ -44,15 +49,15 @@ function getAllDropOuts() {
   return dropOuts
 }
 
-function distanceFromDropOut(startingPoint, dropOut) {
-  const a = startingPoint.xCoor - dropOut.xCoor
-  const b = startingPoint.yCoor - dropOut.yCoor
+function getDistance(startingPoint, endingPoint) {
+  const a = startingPoint.xCoor - endingPoint.xCoor
+  const b = startingPoint.yCoor - endingPoint.yCoor
 
   return Math.sqrt( a*a + b*b );
 }
 
 module.exports = {
-  distanceFromDropOut,
+  getDistance,
   getAllAreas,
   getAllDropOuts
 }
