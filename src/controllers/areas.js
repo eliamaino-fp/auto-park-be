@@ -1,9 +1,11 @@
 var database = require('../services/database-repo.js');
 
 
-function getAllAreas() {
+function getAllAreas(cb) {
     database.getAreas(function(err, areas) {
-        console.log(areas)
+        if (err)
+            return err;
+        return cb(null, areas);
     })
 }
 
