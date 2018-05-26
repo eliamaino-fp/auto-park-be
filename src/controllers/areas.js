@@ -35,6 +35,15 @@ function getAllDropOuts() {
     areas.forEach(area => {
         if (area.dropOuts && area.dropOuts.length > 0) {
             area.dropOuts.forEach(dropOut => {
+                dropOut.areaValue = area.freeParkingPercentage
+                dropOuts.push(dropOut)
+            })
+        }
+    })
+
+    areas.forEach(area => {
+        if (area.dropOuts && area.dropOuts.length > 0) {
+            area.dropOuts.forEach(dropOut => {
                 dropOuts.push(dropOut)
             })
         }
@@ -43,15 +52,15 @@ function getAllDropOuts() {
     return dropOuts
 }
 
-function distanceFromDropOut(startingPoint, dropOut) {
-    const a = startingPoint.xCoor - dropOut.xCoor
-    const b = startingPoint.yCoor - dropOut.yCoor
+function getDistance(startingPoint, endingPoint) {
+    const a = startingPoint.xCoor - endingPoint.xCoor
+    const b = startingPoint.yCoor - endingPoint.yCoor
 
     return Math.sqrt(a * a + b * b);
 }
 
 module.exports = {
-    distanceFromDropOut,
+    getDistance,
     getAllAreas,
     getAllDropOuts
 }

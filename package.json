@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/eliamaino-fp/auto-park-be#readme",
   "dependencies": {
+<<<<<<< HEAD
     "assert": "^1.4.1",
+=======
+>>>>>>> ba15e61f088dc79d41311779ded6d8a53ffa86e2
     "express": "^4.16.3",
     "mongodb": "^3.1.0-beta4"
   },
