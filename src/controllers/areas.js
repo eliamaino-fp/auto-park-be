@@ -26,14 +26,6 @@ function getAllDropOuts(cb) {
       }
     })
 
-    areas.forEach(area => {
-      if (area.dropOuts && area.dropOuts.length > 0) {
-        area.dropOuts.forEach(dropOut => {
-            dropOuts.push(dropOut)
-        })
-      }
-    })
-
     return cb(null,dropOuts);
   })
 }
